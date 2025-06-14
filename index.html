@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal- Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    
+           <body>
+
+  <nav>
+    <img src="images/logo.png" class="logo">
+    <ul id="sidemenu">
+      <li><a href="#header">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#Portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <i class="fa-solid fa-circle-xmark" onclick="closeMenu()"></i>
+    </ul>
+    <i class="fa-solid fa-bars"  onclick="openMenu()"></i>
+  </nav>
+
+  
+  <div class="container">
+    <div class="text-section">
+      <h1>Hi, I'm <span>Shevya Singh</span></h1>
+      <h3>Web Developer</h3>
+      <p>This is my portfolio. Welcome!</p>
+    </div>
+    <div id="header"></div>
+  </div>
+
+ 
+  <div id="about">
+    <div class="about-container">
+      <div class="about-col-1">
+        <img src="images/shevya.png.png" alt="About Image">
+      </div>
+      <div class="about-col-2">
+        <h1 class="sub-title">About Me</h1>
+        <p>I’m a 3rd-year engineering student(CSE) at Jaypee University of Engineering and Technology  Guna with a strong interest in web development and machine learning. I enjoy building creative and functional digital experiences, and I’m constantly exploring new technologies to expand my knowledge. My curiosity, discipline, and passion for problem-solving make me a unique learner and creator..</p>
+        
+        <div class="tab-titles">
+
+        <p class="tab-links active-link" onclick="opentab('Skills', this)">Skills</p>
+        <p class="tab-links" onclick="opentab('Intersets', this)">Intersets</p> 
+        <p class="tab-links" onclick="opentab('Projects', this)">Projects</p>
+      </div>
+
+        <div class="tab-contents active-tab" id="Skills">
+          <ul>
+            <li><span>Programming Languages</span><br>C/C++,Python,Java</li>
+             <li><span>UI/UX</span><br>HTML & CSS,JavaScript</li>
+             
+               <li><span>Machine Learning</span><br>Numpy,Pandas,Scikit-Learn</li>
+                <li><span>Data Structure and Algorithms </span></li>
+          </ul>
+        </div>
+
+        
+        <div class="tab-contents" id="Intersets">
+          <ul>
+          <li><span>Web Development</span></li>
+          <li><span>AI &Machine Learning</span><li>
+          <li><span>Problem Solving</span></li>
+               
+          </ul>
+        </div>
+
+       
+        <div class="tab-contents" id="Projects">
+          <ul>
+            <li><span>To-do list</span><br>A simple JavaScript app for managing daily tasks.
+</li>
+            
+            <li><span>Weather App</span><br> Uses APIs to display real-time weather info.
+View Project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--------------services----------------->
+
+   <div id="services">
+    <div class="services-container">
+      <h1 class="sub-title">My Services</h1>
+      <div class="services-list">
+        <div>
+          <h2>Ex-Co-ordinator at Juet guna </h2>
+          <p>Work as a Dance wing JYC co-ordinator at juet guna</p>
+          <a href="#">learn more</a>
+          
+        </div>
+
+         <div>
+          <h2>volunteer</h2>
+          <p>Works as a volunteer in collage when annual fest was  organized by the collage in my first year </p>
+          <a href="#">learn more</a>
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+<!-------------------portfolio----------->
+
+<div id="Portfolio"></div>
+    <div class="Portfolio-container">
+      <h1 class="sub-title">My Work </h1> 
+      <div class="work-list">
+        <div class="work">
+          <img src="images/istockphoto-1212262480-612x612.jpg" >
+          <div class="layer">
+            <h3>Weather App</h3>
+            <p>A simple and user-friendly app that provides real-time weather updates for any location. It features a clean and intuitive interface, making it easy to check the current weather, upcoming forecasts, and receive alerts for severe conditions. 
+
+            </p>
+            <a href="#">
+            <i class="fa-regular fa-link"></i>
+            </a>
+          </div>
+
+          
+        </div>
+
+         <div class="work">
+          <img src="images/Best-Budgeting-Expenses-Tracking-App-Singapore--845x587.jpg" >
+         <div class="layer">
+          <h3>Expense Tracker App</h3>
+          <p> simple and intuitive app to help you stay on top of your spending. It allows users to easily add daily expenses, categorize them, and track where their money is going. With clear summaries and visual reports, it makes budgeting feel less overwhelming and more in control.</p>
+           <a href="#">
+            <i class="fa-regular fa-link"></i>
+            </a>
+         </div>
+         </div>
+      </div>
+    </div>
+
+     <a href="#" class ="btn">
+            See more
+            </a>
+  </div>
+</div>
+
+
+
+
+
+
+<!-----------------------contact--------------->
+
+<div id="contact">
+ <div class="container">
+   <div class="row">
+      <div class="contact-left">
+
+    <h1 class ="sub-title">Contact Me</h1>
+     <p> <i class="fa-solid fa-paper-plane"></i>shevyasingh3@gmail.com</p>
+     <p> <i class="fa-solid fa-phone"></i>7727982043</p>
+
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/shevya-singh-600321346"><i class="fa-brands fa-linkedin">
+
+        </i>
+      </a>
+  </div>
+  <a href="images/RenderCV_EngineeringResumes_Theme.pdf" download class="btn btn2">Download CV</a>
+
+</div>
+      <div class="contact-right">
+        <form name="submit-to-google-sheet">
+          <input type="text" name="Name" placeholder=" Your Name" required>
+          <input type="email" name="Email"placeholder ="Your Email" required>
+
+          <textarea name="Message" rows="6" placeholder="Your Message  "></textarea>
+           <button type="submit" class="btn btn2">Submit</button>
+        </form>
+
+
+        <span id="msg"></span>
+<span id="form-status"></span>
+          </div>
+        </div>
+      </div>
+  </div>
+       <div class="copyright">
+        <p style="color:white;">
+          © Copyright Shevya Singh. All rights reserved.
+        </p>
+       </div>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxdoHQi_JZjqmsWHICZXK_I5geM4DsMf-REK-WM0WJetG5Tft-xsaXFueB1noEW35as/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        msg.innerHTML = "Message sent successfully";
+        setTimeout(() => {
+          msg.innerHTML = "";
+        }, 5000);
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert("Something went wrong. Check the console.");
+      });
+    });
+  </script>
+
+ <script>
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+
+  function opentab(tabname, element) {
+    for (let tablink of tablinks) {
+      tablink.classList.remove("active-link");
+    }
+    for (let tabcontent of tabcontents) {
+      tabcontent.classList.remove("active-tab");
+    }
+
+    element.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+
+  }
+  
+</script>
+
+<script>
+  var sidemenu = document.getElementById("sidemenu");
+
+  function openMenu() {
+    sidemenu.style.right = "0";
+  }
+
+  function closeMenu() {
+    sidemenu.style.right = "-200px";
+  }
+</script>
+</body>

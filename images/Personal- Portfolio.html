@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal- Portfolio</title>
+    <link rel="stylesheet" href="./Personal- Portfolio_files/style.css">
+     <link rel="stylesheet" href="./Personal- Portfolio_files/all.min.css">
+</head>
+<body class="vsc-initialized">
+    
+           
+  <!-- ✅ NAVIGATION BAR -->
+  <nav>
+    <img src="./Personal- Portfolio_files/logo.png" class="logo">
+    <ul id="sidemenu">
+      <li><a href="http://127.0.0.1:5500/index.html#header">Home</a></li>
+      <li><a href="http://127.0.0.1:5500/index.html#about">About Me</a></li>
+      <li><a href="http://127.0.0.1:5500/index.html#services">Services</a></li>
+      <li><a href="http://127.0.0.1:5500/index.html#Portfolio">Portfolio</a></li>
+      <li><a href="http://127.0.0.1:5500/index.html#contact">Contact</a></li>
+      <i class="fa-solid fa-circle-xmark" onclick="closeMenu()"></i>
+    </ul>
+    <i class="fa-solid fa-bars" onclick="openMenu()"></i>
+  </nav>
+
+  <!-- ✅ HERO SECTION -->
+  <div class="container">
+    <div class="text-section">
+      <h1>Hi, I'm <span>Shevya Singh</span></h1>
+      <h3>Web Developer</h3>
+      <p>This is my portfolio. Welcome!</p>
+    </div>
+    <div id="header"></div>
+  </div>
+
+  <!-- ✅ ABOUT ME SECTION -->
+  <div id="about">
+    <div class="about-container">
+      <div class="about-col-1">
+        <img src="./Personal- Portfolio_files/shevya.png.png" alt="About Image">
+      </div>
+      <div class="about-col-2">
+        <h1 class="sub-title">About Me</h1>
+        <p>I’m a 3rd-year engineering student(CSE) at Jaypee University of Engineering and Technology  Guna with a strong interest in web development and machine learning. I enjoy building creative and functional digital experiences, and I’m constantly exploring new technologies to expand my knowledge. My curiosity, discipline, and passion for problem-solving make me a unique learner and creator..</p>
+        
+        <div class="tab-titles">
+
+        <p class="tab-links active-link" onclick="opentab(&#39;Skills&#39;, this)">Skills</p>
+        <p class="tab-links" onclick="opentab(&#39;Intersets&#39;, this)">Intersets</p> 
+        <p class="tab-links" onclick="opentab(&#39;Projects&#39;, this)">Projects</p>
+      </div>
+
+        <div class="tab-contents active-tab" id="Skills">
+          <ul>
+            <li><span>Programming Languages</span><br>C/C++,Python,Java</li>
+             <li><span>UI/UX</span><br>HTML &amp; CSS,JavaScript</li>
+             
+               <li><span>Machine Learning</span><br>Numpy,Pandas,Scikit-Learn</li>
+                <li><span>Data Structure and Algorithms </span></li>
+          </ul>
+        </div>
+
+        
+        <div class="tab-contents" id="Intersets">
+          <ul>
+          <li><span>Web Development</span></li>
+          <li><span>AI &amp;Machine Learning</span></li><li>
+          </li><li><span>Problem Solving</span></li>
+               
+          </ul>
+        </div>
+
+       
+        <div class="tab-contents" id="Projects">
+          <ul>
+            <li><span>To-do list</span><br>A simple JavaScript app for managing daily tasks.
+</li>
+            
+            <li><span>Weather App</span><br> Uses APIs to display real-time weather info.
+View Project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--------------services----------------->
+
+   <div id="services">
+    <div class="services-container">
+      <h1 class="sub-title">My Services</h1>
+      <div class="services-list">
+        <div>
+          <h2>Ex-Co-ordinator at Juet guna </h2>
+          <p>Work as a Dance wing JYC co-ordinator at juet guna</p>
+          <a href="http://127.0.0.1:5500/index.html#">learn more</a>
+          
+        </div>
+
+         <div>
+          <h2>volunteer</h2>
+          <p>Works as a volunteer in collage when annual fest was  organized by the collage in my first year </p>
+          <a href="http://127.0.0.1:5500/index.html#">learn more</a>
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+<!-------------------portfolio----------->
+
+<div id="Portfolio"></div>
+    <div class="Portfolio-container">
+      <h1 class="sub-title">My Work </h1> 
+      <div class="work-list">
+        <div class="work">
+          <img src="./Personal- Portfolio_files/istockphoto-1212262480-612x612.jpg">
+          <div class="layer">
+            <h3>Weather App</h3>
+            <p>A simple and user-friendly app that provides real-time weather updates for any location. It features a clean and intuitive interface, making it easy to check the current weather, upcoming forecasts, and receive alerts for severe conditions. 
+
+            </p>
+            <a href="http://127.0.0.1:5500/index.html#">
+            <i class="fa-regular fa-link"></i>
+            </a>
+          </div>
+
+          
+        </div>
+
+         <div class="work">
+          <img src="./Personal- Portfolio_files/Best-Budgeting-Expenses-Tracking-App-Singapore--845x587.jpg">
+         <div class="layer">
+          <h3>Expense Tracker App</h3>
+          <p> simple and intuitive app to help you stay on top of your spending. It allows users to easily add daily expenses, categorize them, and track where their money is going. With clear summaries and visual reports, it makes budgeting feel less overwhelming and more in control.</p>
+           <a href="http://127.0.0.1:5500/index.html#">
+            <i class="fa-regular fa-link"></i>
+            </a>
+         </div>
+         </div>
+      </div>
+    </div>
+
+     <a href="http://127.0.0.1:5500/index.html#" class="btn">
+            See more
+            </a>
+  
+
+<!-----------------------contact--------------->
+
+<div id="contact"></div>
+<div class="container">
+  <div class="row">
+<div class="contact-left">
+
+  <h1 class="sub-title">Contact Me</h1>
+  <p> <i class="fa-solid fa-paper-plane"></i>shevyasingh3@gmail.com</p>
+  <p> <i class="fa-solid fa-phone"></i>7727982043</p>
+
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/shevya-singh-600321346"><i class="fa-brands fa-linkedin">
+
+        </i>
+      </a>
+  </div>
+  <a href="http://127.0.0.1:5500/images/RenderCV_EngineeringResumes_Theme.pdf" download="" class="btn btn2">Download CV</a>
+
+</div>
+      <div class="contact-right">
+        <form name="submit-to-google-sheet">
+          <input type="text" name="Name" placeholder=" Your Name" required="">
+          <input type="email" name="Email" placeholder="Your Email" required="">
+
+          <textarea name="Message" rows="6" placeholder="Your Message  "></textarea>
+           <button type="submit" class="btn btn2">Submit</button>
+        </form>
+  
+      </div>
+     </div>
+  </div>
+
+
+
+ <script>
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+
+  function opentab(tabname, element) {
+    for (let tablink of tablinks) {
+      tablink.classList.remove("active-link");
+    }
+    for (let tabcontent of tabcontents) {
+      tabcontent.classList.remove("active-tab");
+    }
+
+    element.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+
+  }
+  
+</script>
+
+<script>
+  var sidemenu = document.getElementById("sidemenu");
+
+  function openMenu() {
+    sidemenu.style.right = "0";
+  }
+
+  function closeMenu() {
+    sidemenu.style.right = "-200px";
+  }
+</script>
+
+
+<script>
+  const scriptURL = '<https://script.google.com/macros/s/AKfycbw7oHwz024MsWGaLhFIxZy0Biq8oO4qvJ-o7mHpmulYkfcGT7IXDcY3nOTEcLnCb10/exec>'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
