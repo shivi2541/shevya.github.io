@@ -560,60 +560,97 @@
     .portfolio { }
     .portfolio__header { text-align:center; margin-bottom:60px; }
     .portfolio__filter {
-      display:flex; justify-content:center; gap:12px;
-      flex-wrap:wrap; margin-bottom:40px;
+      display:flex; justify-content:center; gap:10px;
+      flex-wrap:wrap; margin-bottom:44px;
     }
     .filter-btn {
-      padding:8px 22px; border-radius:50px;
-      font-size:.78rem; font-weight:600; letter-spacing:.5px;
+      padding:9px 24px; border-radius:50px;
+      font-size:.75rem; font-weight:600; letter-spacing:.8px;
       cursor:pointer; border:1.5px solid var(--border);
       background:transparent; color:var(--muted);
       font-family:'Jost',sans-serif;
-      transition:all .3s;
+      transition:all .3s ease; text-transform:uppercase;
     }
     .filter-btn.active, .filter-btn:hover {
-      background:var(--deep-rose); color:#fff;
-      border-color:var(--deep-rose);
+      background:linear-gradient(135deg,#6366f1,#8b5cf6);
+      color:#fff; border-color:transparent;
+      box-shadow:0 6px 20px rgba(99,102,241,.35);
     }
     .portfolio__grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:24px;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
     }
+    @media(max-width:1100px){ .portfolio__grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:640px) { .portfolio__grid{ grid-template-columns:1fr; } }
+
     .port-card {
-      background:var(--white); border:1px solid var(--border);
+      background:var(--white); border:1px solid rgba(99,102,241,.15);
       border-radius:22px; overflow:hidden;
-      box-shadow:0 6px 22px var(--shadow);
-      transition:transform .4s ease, box-shadow .4s ease;
+      box-shadow:0 6px 22px rgba(99,102,241,.08);
+      transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
+      display:flex; flex-direction:column; position:relative;
     }
-    .port-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(160,90,98,.18); }
-    .port-card__img {
-      position:relative; overflow:hidden; height:210px;
-    }
-    .port-card__img img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
-    .port-card:hover .port-card__img img { transform:scale(1.08); }
-    .port-card__overlay {
-      position:absolute; inset:0;
-      background:linear-gradient(180deg,transparent 30%,rgba(43,30,30,.8));
+    .port-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,#6366f1,#8b5cf6,#ec4899);
       opacity:0; transition:opacity .4s ease;
-      display:flex; align-items:flex-end;
-      padding:20px;
     }
-    .port-card:hover .port-card__overlay { opacity:1; }
-    .port-card__overlay a {
-      display:inline-flex; align-items:center; gap:7px;
-      background:#fff; color:var(--deep-rose);
-      padding:8px 18px; border-radius:50px;
-      font-size:.78rem; font-weight:700;
-      transition:background .3s;
+    .port-card:hover { transform:translateY(-10px); box-shadow:0 28px 64px rgba(99,102,241,.18); }
+    .port-card:hover::before { opacity:1; }
+
+    .port-card__banner {
+      height:160px; position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
     }
-    .port-card__overlay a:hover { background:var(--blush); }
-    .port-card__body { padding:22px 24px; }
-    .port-card__tag {
-      font-size:.68rem; font-weight:700; letter-spacing:1.5px;
-      text-transform:uppercase; color:var(--rose); margin-bottom:6px;
+    .port-card__banner-icon {
+      font-size:3rem; color:rgba(255,255,255,.9);
+      position:relative; z-index:1; transition:transform .4s ease;
     }
-    .port-card__title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--charcoal); margin-bottom:8px; }
-    .port-card__desc { font-size:.83rem; color:var(--muted); line-height:1.7; }
+    .port-card:hover .port-card__banner-icon { transform:scale(1.15) rotate(-5deg); }
+    .port-card[data-cat="ml"]  .port-card__banner { background:linear-gradient(135deg,#1e1b4b 0%,#312e81 40%,#4f46e5 100%); }
+    .port-card[data-cat="web"] .port-card__banner { background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 40%,#0ea5e9 100%); }
+    .port-card[data-cat="ai"]  .port-card__banner { background:linear-gradient(135deg,#2d1b69 0%,#5b21b6 40%,#8b5cf6 100%); }
+
+    .port-card__cat-badge {
+      position:absolute; top:14px; right:14px;
+      background:rgba(255,255,255,.15); backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.25); color:#fff;
+      border-radius:50px; font-size:.65rem; font-weight:700;
+      letter-spacing:1.2px; text-transform:uppercase; padding:4px 12px;
+    }
+    .port-card__body { padding:24px 26px 20px; flex:1; display:flex; flex-direction:column; }
+    .port-card__tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+    .port-card__chip {
+      font-size:.62rem; font-weight:700; letter-spacing:.8px;
+      text-transform:uppercase; padding:3px 10px; border-radius:50px;
+      background:rgba(99,102,241,.1); color:#6366f1; border:1px solid rgba(99,102,241,.2);
+    }
+    .port-card__chip.chip-purple { background:rgba(139,92,246,.1); color:#8b5cf6; border-color:rgba(139,92,246,.2); }
+    .port-card__chip.chip-pink   { background:rgba(236,72,153,.1);  color:#ec4899; border-color:rgba(236,72,153,.2); }
+    .port-card__chip.chip-sky    { background:rgba(14,165,233,.1);  color:#0ea5e9; border-color:rgba(14,165,233,.2); }
+    .port-card__chip.chip-green  { background:rgba(16,185,129,.1);  color:#10b981; border-color:rgba(16,185,129,.2); }
+    .port-card__chip.chip-orange { background:rgba(249,115,22,.1);  color:#f97316; border-color:rgba(249,115,22,.2); }
+    .port-card__title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--charcoal); margin-bottom:10px; line-height:1.35; font-weight:600; }
+    .port-card__desc { font-size:.82rem; color:var(--muted); line-height:1.75; margin-bottom:16px; flex:1; }
+    .port-card__stack { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+    .port-card__stack span {
+      font-size:.68rem; font-weight:500;
+      background:var(--parchment); color:var(--muted);
+      padding:3px 10px; border-radius:6px; border:1px solid var(--border);
+    }
+    .port-card__actions { display:flex; gap:10px; margin-top:auto; }
+    .port-card__actions a {
+      flex:1; display:inline-flex; align-items:center; justify-content:center; gap:7px;
+      padding:10px 14px; border-radius:10px;
+      font-size:.75rem; font-weight:700; letter-spacing:.3px;
+      text-decoration:none; transition:all .3s ease; font-family:'Jost',sans-serif;
+    }
+    .port-btn-github { background:var(--parchment); color:var(--charcoal); border:1.5px solid var(--border); }
+    .port-btn-github:hover { background:var(--charcoal); color:#fff; border-color:var(--charcoal); }
+    .port-btn-demo {
+      background:linear-gradient(135deg,#6366f1,#8b5cf6); color:#fff; border:none;
+      box-shadow:0 4px 14px rgba(99,102,241,.3);
+    }
+    .port-btn-demo:hover { box-shadow:0 8px 24px rgba(99,102,241,.45); transform:translateY(-2px); }
 
     /* ═══════════════════════════════════════
        PROJECT IN MIND (CTA)
@@ -872,7 +909,7 @@
             </div>
           </div>
           <div style="display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="images/Shevya_resume.pdf"download class="btn btn-solid"><i class="fa-solid fa-download"></i> Download CV</a>
+            <a href="images/RenderCV_EngineeringResumes_Theme.pdf" download class="btn btn-solid"><i class="fa-solid fa-download"></i> Download CV</a>
             <a href="#contact" class="btn btn-ghost">Let's Talk</a>
           </div>
         </div>
@@ -967,7 +1004,7 @@
             <div class="tl-dot"></div>
             <div class="tl-card">
               <h4>Higher Secondary (12th)</h4>
-              <div class="org">CBSE Board</div>
+              <div class="org">RBSE Board</div>
               <span class="yr"><i class="fa-regular fa-calendar"></i> 2020 — 2022</span>
             </div>
           </div>
@@ -1039,46 +1076,141 @@
       <div class="portfolio__header">
         <span class="section-tag reveal">My work</span>
         <h2 class="section-title reveal d1">Selected <em>Projects</em></h2>
+        <p class="reveal d2" style="color:var(--muted);font-size:.95rem;margin-top:12px;max-width:520px;margin-inline:auto;line-height:1.7;">A collection of AI/ML and web development projects built with a focus on real-world impact.</p>
       </div>
       <div class="portfolio__filter reveal d2">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="ml">ML</button>
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="ml">Data &amp; ML</button>
+        <button class="filter-btn" data-filter="ai">AI Systems</button>
+        <button class="filter-btn" data-filter="web">Web Dev</button>
       </div>
       <div class="portfolio__grid">
-        <div class="port-card reveal d1" data-cat="web">
-          <div class="port-card__img">
-            <img src="images/istockphoto-1212262480-612x612.jpg" alt="Weather App" onerror="this.src='https://placehold.co/400x210/e9cdc8/7c4550?text=Weather+App'">
-            <div class="port-card__overlay"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a></div>
+
+        <!-- 1 — E-commerce Sales Analysis -->
+        <div class="port-card reveal d1" data-cat="ml">
+          <div class="port-card__banner">
+            <i class="fa-solid fa-chart-bar port-card__banner-icon"></i>
+            <span class="port-card__cat-badge">Data Analytics</span>
           </div>
           <div class="port-card__body">
-            <div class="port-card__tag">Web · API</div>
-            <h3 class="port-card__title">Weather App</h3>
-            <p class="port-card__desc">Real-time weather updates for any location using OpenWeather API with a clean, responsive interface.</p>
+            <div class="port-card__tags">
+              <span class="port-card__chip">Python</span>
+              <span class="port-card__chip chip-purple">Pandas</span>
+              <span class="port-card__chip chip-sky">NumPy</span>
+              <span class="port-card__chip chip-orange">Matplotlib</span>
+            </div>
+            <h3 class="port-card__title">E-commerce Region-wise Sales Analysis</h3>
+            <p class="port-card__desc">Analysed regional e-commerce sales data to uncover customer trends, sales patterns, and actionable business insights through advanced data visualisation and analytics.</p>
+            <div class="port-card__stack">
+              <span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span>
+            </div>
+            <div class="port-card__actions">
+              <a href="#" class="port-btn-github"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="port-btn-demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
           </div>
         </div>
-        <div class="port-card reveal d2" data-cat="web">
-          <div class="port-card__img">
-            <img src="images/Best-Budgeting-Expenses-Tracking-App-Singapore--845x587.jpg" alt="Expense Tracker" onerror="this.src='https://placehold.co/400x210/e9cdc8/7c4550?text=Expense+Tracker'">
-            <div class="port-card__overlay"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a></div>
+
+        <!-- 2 — AI Competitor Price Tracker -->
+        <div class="port-card reveal d2" data-cat="ai">
+          <div class="port-card__banner">
+            <i class="fa-solid fa-robot port-card__banner-icon"></i>
+            <span class="port-card__cat-badge">AI · ML</span>
           </div>
           <div class="port-card__body">
-            <div class="port-card__tag">Web · JavaScript</div>
-            <h3 class="port-card__title">Expense Tracker</h3>
-            <p class="port-card__desc">Smart budget tracker with category breakdowns, visual reports, and daily spending insights.</p>
+            <div class="port-card__tags">
+              <span class="port-card__chip chip-purple">ML</span>
+              <span class="port-card__chip chip-pink">Scikit-learn</span>
+              <span class="port-card__chip chip-green">Web Scraping</span>
+              <span class="port-card__chip">Python</span>
+            </div>
+            <h3 class="port-card__title">AI-Powered Competitor Price Tracker</h3>
+            <p class="port-card__desc">Developed an AI-powered pricing analysis system using web scraping and machine learning to monitor competitor pricing trends and optimise business strategies in real time.</p>
+            <div class="port-card__stack">
+              <span>Python</span><span>Scikit-learn</span><span>BeautifulSoup</span><span>ML</span>
+            </div>
+            <div class="port-card__actions">
+              <a href="#" class="port-btn-github"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="port-btn-demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
           </div>
         </div>
+
+        <!-- 3 — Pizza Customizer -->
         <div class="port-card reveal d3" data-cat="web">
-          <div class="port-card__img">
-            <img src="images/istockphoto-1212262480-612x612.jpg" alt="To-Do App" onerror="this.src='https://placehold.co/400x210/e9cdc8/7c4550?text=To-Do+App'">
-            <div class="port-card__overlay"><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a></div>
+          <div class="port-card__banner">
+            <i class="fa-solid fa-pizza-slice port-card__banner-icon"></i>
+            <span class="port-card__cat-badge">Web Dev</span>
           </div>
           <div class="port-card__body">
-            <div class="port-card__tag">Web · JavaScript</div>
-            <h3 class="port-card__title">To-Do List App</h3>
-            <p class="port-card__desc">Minimal task manager with priority tags and local storage persistence.</p>
+            <div class="port-card__tags">
+              <span class="port-card__chip chip-sky">HTML</span>
+              <span class="port-card__chip chip-pink">CSS</span>
+              <span class="port-card__chip chip-orange">JavaScript</span>
+              <span class="port-card__chip chip-purple">GSAP</span>
+            </div>
+            <h3 class="port-card__title">Customize Your Own Pizza</h3>
+            <p class="port-card__desc">Designed and developed an interactive pizza customisation website featuring responsive layouts, smooth GSAP animations, dynamic UI components, and an engaging user experience.</p>
+            <div class="port-card__stack">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
+            </div>
+            <div class="port-card__actions">
+              <a href="#" class="port-btn-github"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="port-btn-demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
           </div>
         </div>
+
+        <!-- 4 — Fraud Detection -->
+        <div class="port-card reveal d1" data-cat="ai">
+          <div class="port-card__banner">
+            <i class="fa-solid fa-shield-halved port-card__banner-icon"></i>
+            <span class="port-card__cat-badge">AI · Security</span>
+          </div>
+          <div class="port-card__body">
+            <div class="port-card__tags">
+              <span class="port-card__chip chip-purple">XGBoost</span>
+              <span class="port-card__chip chip-green">LightGBM</span>
+              <span class="port-card__chip">Python</span>
+              <span class="port-card__chip chip-pink">ML</span>
+            </div>
+            <h3 class="port-card__title">Fraud Detection System for Digital Payments</h3>
+            <p class="port-card__desc">Built a machine learning-based fraud detection system using XGBoost, LightGBM, and rule-based logic to identify and flag suspicious digital payment transactions with high accuracy.</p>
+            <div class="port-card__stack">
+              <span>Python</span><span>XGBoost</span><span>LightGBM</span><span>Scikit-learn</span>
+            </div>
+            <div class="port-card__actions">
+              <a href="#" class="port-btn-github"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="port-btn-demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 — Handwritten Text Summarizer -->
+        <div class="port-card reveal d2" data-cat="ai">
+          <div class="port-card__banner">
+            <i class="fa-solid fa-file-pen port-card__banner-icon"></i>
+            <span class="port-card__cat-badge">AI · NLP</span>
+          </div>
+          <div class="port-card__body">
+            <div class="port-card__tags">
+              <span class="port-card__chip chip-sky">OCR</span>
+              <span class="port-card__chip chip-purple">NLP</span>
+              <span class="port-card__chip chip-orange">Python</span>
+              <span class="port-card__chip chip-green">ML</span>
+            </div>
+            <h3 class="port-card__title">Handwritten Text Documentation &amp; Summarizer</h3>
+            <p class="port-card__desc">Created an AI-powered handwritten text recognition and summarisation system using OCR and NLP techniques to convert handwritten notes into structured, searchable digital summaries.</p>
+            <div class="port-card__stack">
+              <span>Python</span><span>OCR</span><span>NLP</span><span>Transformers</span>
+            </div>
+            <div class="port-card__actions">
+              <a href="#" class="port-btn-github"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="port-btn-demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1319,13 +1451,16 @@
         btn.classList.add('active');
         const f = btn.dataset.filter;
         document.querySelectorAll('.port-card').forEach(card => {
-          card.style.opacity   = '0';
-          card.style.transform = 'scale(.9)';
-          setTimeout(() => {
-            card.style.display = (f === 'all' || card.dataset.cat === f) ? 'block' : 'none';
-            setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 50);
-          }, 150);
+          const match = f === 'all' || card.dataset.cat === f;
           card.style.transition = 'opacity .35s ease, transform .35s ease';
+          if (match) {
+            card.style.display = 'flex';
+            setTimeout(() => { card.style.opacity = '1'; card.style.transform = ''; }, 20);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(.92)';
+            setTimeout(() => { card.style.display = 'none'; }, 360);
+          }
         });
       });
     });
